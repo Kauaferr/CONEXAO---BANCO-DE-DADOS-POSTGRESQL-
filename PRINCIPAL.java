@@ -9,11 +9,15 @@ conexaosql conexao = new conexaosql();
 Scanner scan = new Scanner(System.in);
 System.out.println("DIGITE O SEU NOME: ");
 
-String sql = "INSERT INTO pessoas(id, nome, email) " + "VALUES ( default, 'BONNIE' , 'pedro.j@hotmail.com')";
+String sql = "INSERT INTO pessoas_profissao(id_pessoas, id_profissao) " + "VALUES ( 1,1)";
+
+
+
+int res = conexao.executaSQL(sql);
+
 
 String consultar = "SELECT * FROM pessoas;";
 
-int res = conexao.executaSQL(sql);
 
 ResultSet consultando = conexao.executaBusca(consultar);
 
@@ -26,21 +30,17 @@ else {
 }
 
 try {
+	for ( int cont = 0; cont<=5;) {
 	while ( consultando.next()) {
-		System.out.println("OQUE DESEJA FAZER??");
-		int resposta = scan.nextInt(); 
-		if ( resposta == 1) {
+		
+		cont++;
 		int id = consultando.getInt("id");
 		String nomedoCliente = consultando.getString("nome");
 		String email = consultando.getString("email");
 		System.out.println("NOME: " + nomedoCliente + "|EMAIL: " + email);
 		
 	}
-	else {
-		System.out.println("OQUE DESEJA FAZER?");
 	}
-	}
-	
 }catch (Exception e) {
 	
 	e.printStackTrace();

@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javax.swing.JOptionPane;
 
 public class conexaosql {
 private String url;
@@ -20,6 +21,7 @@ conexaosql(){
 		Class.forName("org.postgresql.Driver");
 		con = DriverManager.getConnection(url, usuario, senha);
 		System.out.println("CONEXÃO REALIZADA");
+		JOptionPane.showMessageDialog(null, "CONEXÃO REALIZADA");
 		
 	} catch (Exception e) {
 		e.printStackTrace();
