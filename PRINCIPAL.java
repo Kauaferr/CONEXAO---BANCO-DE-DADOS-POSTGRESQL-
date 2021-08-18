@@ -9,11 +9,13 @@ conexaosql conexao = new conexaosql();
 Scanner scan = new Scanner(System.in);
 System.out.println("DIGITE O SEU NOME: ");
 
-String sql = "INSERT INTO pessoas_profissao(id_pessoas, id_profissao) " + "VALUES ( 1,1)";
+String sql = "INSERT INTO pessoas_profissao(id_pessoas, id_profissao) " + "VALUES ( 2,1)";
+String sql1 = "INSERT INTO pessoas(id, nome, email) " + "VALUES ( default, 'BONNIE' , 'pedro.j@hotmail.com')";
 
 
 
 int res = conexao.executaSQL(sql);
+int res1 = conexao.executaSQL(sql1);
 
 
 String consultar = "SELECT * FROM pessoas;";
